@@ -9,7 +9,7 @@ source "/vagrant/scripts/versions.sh"
 CURL_OPTS="-Ss --retry 10 "
 
 # java
-JAVA_ARCHIVE=jdk-8u51-linux-x64.gz
+JAVA_ARCHIVE=jdk-8u321-linux-aarch64.tar.gz
 JAVA_MYSQL_CONNECTOR_VERSION=5.1.40
 JAVA_MYSQL_CONNECTOR_JAR=mysql-connector-java-${JAVA_MYSQL_CONNECTOR_VERSION}.jar
 # 

@@ -8,7 +8,7 @@ VAGRANTFILE_API_VERSION = '2'.freeze
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provider "docker" do |d|
-	    d.image = "nishidayuya/docker-vagrant-ubuntu:xenial"
+	    d.image = "arm64v8/ubuntuxenial"
 	    d.has_ssh = true
 	    d.ports = ["8088:8088","8080:8080","9083:9083","4040:4040","8888:8888","16010:16010","8020:8020"]
     end
