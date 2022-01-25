@@ -11,9 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provider "docker" do |d|
 	    d.image = "rofrano/vagrant-provider:ubuntu-jammy"
 	    d.has_ssh = true
-        d.privileged = true
-        d.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
-        d.create_args = ["--cgroupns=host"]
+        # d.privileged = true
+        # d.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
+        # d.create_args = ["--cgroupns=host"]
         # d.privileged = true
         # d.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
 	    # d.ports = ["8088:8088","8080:8080","9083:9083","4040:4040","8888:8888","16010:16010","8020:8020"]
