@@ -5,6 +5,7 @@ This directory contains vim customisations and settings that make vim look and b
 These extensions and setting require the full version of vim. To install on Linux use: -
 
 ```bash
+export DEBIAN_FRONTEND=noninteractive
  sudo apt-get install vim
 ```
 

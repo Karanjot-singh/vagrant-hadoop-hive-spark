@@ -7,23 +7,23 @@ Vagrant.require_version '>= 1.4.3'
 VAGRANTFILE_API_VERSION = '2'.freeze
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.ssh.insert_key = false
     config.vm.provider "docker" do |d|
-	    d.image = "rofrano/vagrant-provider:ubuntu-jammy"
+	    d.image = "nishidayuya/docker-vagrant-ubuntu:xenial"
 	    d.has_ssh = true
-        # d.privileged = true
-        # d.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
-        # d.create_args = ["--cgroupns=host"]
-        # d.privileged = true
-        # d.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
-	    # d.ports = ["8088:8088","8080:8080","9083:9083","4040:4040","8888:8888","16010:16010","8020:8020"]
+	    d.ports = ["8088:8088","8080:8080","9083:9083","4040:4040","8888:8888","16010:16010","8020:8020"]
     end
-    config.vm.provider "virtualbox" do |v, override|
-	    override.vm.box = "ubuntu/xenial64"
+    config.vm.provider "vmware_fusion" do |v, override|
+	    override.vm.box = "spox/ubuntu-arm"
+        override.vm.box_version = "1.0.0"
+        override.vm.network :private_network
 	    v.gui = false
-	    v.name = "node2"
-            v.customize ['modifyvm', :id, '--memory', '8192']
+        v.vmx["ethernet0.pcislotnumber"] = "160"
+	    # v.name = "node2"
+        #     v.customize ['modifyvm', :id, '--memory', '8192']
     end
+
+    # config.vm.box = "spox/ubuntu-arm"
+    # config.vm.box_version = "1.0.0"
     config.vm.network "forwarded_port", guest: 8080, host: 8080
     config.vm.network "forwarded_port", guest: 8020, host: 8020
     config.vm.network "forwarded_port", guest: 8088, host: 8088

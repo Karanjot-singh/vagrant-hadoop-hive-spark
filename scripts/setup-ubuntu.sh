@@ -14,13 +14,16 @@ function setupHosts {
 
 function setupSwap {
     # setup swapspace daemon to allow more memory usage.
-    apt-get install -y swapspace
+    export DEBIAN_FRONTEND=noninteractive
+apt-get install -y swapspace
 }
 
 
 function installSSHPass {
-	apt-get update
-	apt-get install -y sshpass
+	export DEBIAN_FRONTEND=noninteractive
+apt-get update
+	export DEBIAN_FRONTEND=noninteractive
+apt-get install -y sshpass
 }
 
 function overwriteSSHCopyId {
@@ -36,12 +39,17 @@ function createSSHKey {
 
 function setupUtilities {
     # so the `locate` command works
-    apt-get install -y mlocate
+    export DEBIAN_FRONTEND=noninteractive
+apt-get install -y mlocate
     updatedb
-    apt-get install -y ant
-    apt-get install -y unzip
-    apt-get install -y python-minimal
-    apt-get install -y curl apt-utils
+    export DEBIAN_FRONTEND=noninteractive
+apt-get install -y ant
+    export DEBIAN_FRONTEND=noninteractive
+apt-get install -y unzip
+    export DEBIAN_FRONTEND=noninteractive
+apt-get install -y python2-minimal
+    export DEBIAN_FRONTEND=noninteractive
+apt-get install -y curl apt-utils
 }
 
 echo "setup ubuntu"

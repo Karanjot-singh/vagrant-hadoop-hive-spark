@@ -9,13 +9,16 @@ function setupUtilities {
 
 function setupVIM {
 #    Use the full vim version 
-    apt-get remove -y vim.tiny
-    apt-get install -y vim
+    export DEBIAN_FRONTEND=noninteractive
+apt-get remove -y vim.tiny
+    export DEBIAN_FRONTEND=noninteractive
+apt-get install -y vim
 }
 
 function setupNetStat {
 #   Setup netstat (usful for debug)
-    apt-get install -y net-tools
+    export DEBIAN_FRONTEND=noninteractive
+apt-get install -y net-tools
 }
 echo "finalize ubuntu"
 setupUtilities

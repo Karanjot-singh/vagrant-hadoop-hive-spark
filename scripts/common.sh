@@ -6,7 +6,7 @@
 source "/vagrant/scripts/versions.sh"
 
 # Curl options
-CURL_OPTS="-Ss --retry 10 "
+CURL_OPTS="-Ss -N --retry 10 "
 
 # java
 JAVA_ARCHIVE=jdk-8u321-linux-aarch64.tar.gz
